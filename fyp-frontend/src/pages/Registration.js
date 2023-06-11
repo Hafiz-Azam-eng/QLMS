@@ -11,7 +11,7 @@ export default function Registration() {
                 <div>
                     <a href="/">
                         <h3 className="text-4xl font-bold text-[#00A86B]">
-                            Quranenc
+                        Quran LMS
                         </h3>
                     </a>
                 </div>

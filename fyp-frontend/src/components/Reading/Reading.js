@@ -2,12 +2,12 @@ import React, { useState, useContext } from 'react'
 import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header'
 import Navbar from '../Navbar/Navbar'
-import SIdebar from '../Sidebar/SIdebar'
+// import SIdebar from '../Sidebar/SIdebar'
 // import Dropdown from '../Dropdown/Dropdown'
 import { useEffect } from 'react'
 import Button from '../button/Button'
 import '../../constants/fonts.css'
-import { BsDatabaseExclamation } from 'react-icons/bs'
+// import { BsDatabaseExclamation } from 'react-icons/bs'
 import Dropdowns from '../Dropdown/Dropdowns'
 import Dropdown from '../Dropdown/Dropdown'
 
@@ -15,8 +15,9 @@ const Reading = () => {
 
     const [surahRea, setSurahRea] = useState(null);
     const [selectedAuthor, setSelectedAuthor] = useState('DrMohsinKhan');
-    const [selectedSurahNumber, setSelectedSurahNumber] = useState(1);
+    const [selectedSurahNumber, setSelectedSurahNumber] = useState("");
     const [selectedSurahName, setSelectedSurahName] = useState("");
+    const [isLoading, setIsLoading] = useState(false); 
     const location = useLocation();
 
     useEffect(() => {
@@ -28,12 +29,12 @@ const Reading = () => {
       }, [location]);
 
     useEffect(() => {
-        fetch(
-          `http://localhost:5000/api/quran/surah/${selectedSurahNumber}/${selectedAuthor}`
-        )
+        setIsLoading(true); // Start loading
+        fetch(`http://localhost:5000/api/quran/surah/${selectedSurahNumber}/${selectedAuthor}`)
           .then((res) => res.json())
           .then((data) => {
             setSurahRea(data);
+            setIsLoading(false); // Stop loading
           });
       }, [selectedSurahNumber, selectedAuthor]);
 
@@ -79,7 +80,14 @@ const Reading = () => {
                         </div>
 
                     </div>
-                    {
+
+                    {isLoading ? ( // Show loading state while fetching data
+            <div className="flex justify-center items-center w-full h-40">
+              <span className="text-gray-500">Loading...</span>
+            </div>
+          ) : (
+
+                    
                         surahRea?.ayahs.map((surahnum) => (
                             <div className='flex flex-col justify-center items-center w-full bg-white shadow-md mt-10 border border-gray-200'>
 
@@ -107,7 +115,8 @@ const Reading = () => {
                         //     :
                         //     "Loading..."
                         // } 
-                    }
+                    )}
+                
 
                     <div className='flex justify-between items-center w-full mt-20 '>
                         <Button name="Previous" />

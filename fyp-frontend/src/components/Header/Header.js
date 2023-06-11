@@ -50,9 +50,9 @@ const Header = (data) => {
                             </div>
                             <div className='flex ml-2 '>
                                 {searchValue === '' ?
-                                    <input className="placeholder:italic placeholder:text-slate-400 md:placeholder:text-[20px] bg-white border-none rounded-md py-2 pl-3 md:pl-9 pr-3 focus:outline-none text-[18px] md:text-md" placeholder='Search' type="text" name="search" />
+                                    <input className=" placeholder:text-slate-400 md:placeholder:text-[20px] bg-white border-none rounded-md py-2 pl-3 md:pl-9 pr-3 focus:outline-none text-[18px] md:text-md" placeholder='Search' type="text" name="search" />
                                     :
-                                    <input value={searchValue} className="placeholder:italic placeholder:text-slate-400 md:placeholder:text-[20px] block bg-white  md:w-96 border-none rounded-md py-2 pl-3 md:pl-9 pr-3 focus:outline-none text-[10px] md:text-md" placeholder='Search' type="text" name="search" />
+                                    <input value={searchValue} className="placeholder:text-slate-400 md:placeholder:text-[20px] block bg-white  md:w-96 border-none rounded-md py-2 pl-3 md:pl-9 pr-3 focus:outline-none text-[10px] md:text-md" placeholder='Search' type="text" name="search" />
 
                                 }
                             </div>

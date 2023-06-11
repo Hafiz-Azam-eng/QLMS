@@ -18,8 +18,6 @@ const Dropdown = ({ onSurahSelect }) => {
     
   },[]);
 
-
-
   return (
     <div className="w-56 overflow-y-auto scrollbar-thin flex flex-col font-medium ml-6 mt-6">
       <div

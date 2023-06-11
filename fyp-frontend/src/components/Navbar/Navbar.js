@@ -14,12 +14,12 @@ const Navbar = () => {
         <div className='max-w-[1240px] px-[15px] py-[15px] items-center flex justify-between mx-auto'> 
             <div className='flex items-center gap-10'>
             { toggle ? 
-            <AiOutlineMenu onClick={()=>setToggle(!toggle)} className='text-white text-2xl md:hidden block'/>
+            <AiOutlineMenu onClick={()=>setToggle(!toggle)} className='text-black text-2xl md:hidden block'/>
             :
-            <AiOutlineClose onClick={()=>setToggle(!toggle)} className='text-white text-2xl md:hidden block'/>
+            <AiOutlineClose onClick={()=>setToggle(!toggle)} className='text-black text-2xl md:hidden block'/>
             } 
             <div className='text-3xl font-bold text-[#00A86B]'>
-                Quranenc
+                Quran LMS
             </div>
             <ui className='hidden md:flex text-gray-700 gap-10 list-none text-xl'>
                 <li>
